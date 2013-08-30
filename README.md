@@ -2,7 +2,7 @@
 
 ##### A Very Basic Javascript Library.
 
-### Where can I get this?
+#### Where can I get this?
 
 	http://redorkulated.github.io/mf.js/mf.js
 	... or ...
@@ -14,58 +14,64 @@
 ##### Basic Elements
 
 `$(string ID)` - Returns the element `<ID>`
-<small style="padding:0 2em;display:block;">Returns`DOMElement` (Alias of `document.getElementByID`)</small>
+>Returns`DOMElement` (Alias of `document.getElementByID`)
 
 `$$(string ObjID,string Tag)` - Returns the elements with tag `<Tag>` in `<ObjID>`
-<small style="padding:0 2em;display:block;">Returns `DOMElement Array` (Alias of`$(<ObjID>).getElementByTagName`)</small>
+>Returns `DOMElement Array` (Alias of`$(<ObjID>).getElementByTagName`)
 
 `$x(DOMElement Obj,string Tag)` - Returns the elements with tag`<Tag>`in`<Obj>`
-<small style="padding:0 2em;display:block;">Returns `DOMElement Array` (Alias of `<Obj>.getElementByTagName`)</small>
+>Returns `DOMElement Array` (Alias of `<Obj>.getElementByTagName`)
 
 ##### Ajax - Supports multiple connections at once
 
 `$Ajax.New(string URL,[string HTTPMethod])` - Opens a new Ajax connection
-<small style="padding:0 2em;display:block;">Returns `RequestID`</small>
+>Returns `RequestID`
 
 `$Ajax.Send(RequestID ID,callback Function,[string POSTContent])` - Sends request
-<small style="padding:0 2em;display:block;">Returns`nothing`</small>
-<small style="padding:0 2em;display:block;">Callback function receives `callback(DOMElementTree,RequestID)`.</small><small style="padding:0 2em;display:block;">If HTTP Method was HEAD, callback function receives `callback(HTTPStatus,RequestID)`.</small>
+>Returns`nothing`
+
+>Callback function receives `callback(DOMElementTree,RequestID)`.
+
+>If HTTP Method was HEAD, callback function receives `callback(HTTPStatus,RequestID)`.
 
 `$Ajax.Header(RequestID ID,[string Header,[string Value]])` - Read & Write Headers
-<small style="padding:0 2em;display:block;">On Error : Returns`false`.</small>
-<small style="padding:0 2em;display:block;">Passing only RequestID : Returns response headers `string Array('HeaderName'=>Value,...)`.</small>
-<small style="padding:0 2em;display:block;">Passing RequestID & Header : Returns response header `string`.</small>
-<small style="padding:0 2em;display:block;">Passing RequestID, Header & Value  : Sets the request header `<Header>`.</small>
+>On Error : Returns`false`.
+
+>Passing only RequestID : Returns response headers `string Array('HeaderName'=>Value,...)`.
+
+>Passing RequestID & Header : Returns response header `string`.
+
+>Passing RequestID, Header & Value  : Sets the request header `<Header>`.
 
 `$Ajax.Close(RequestID ID)` - Stops request & destroys request object
-<small style="padding:0 2em;display:block;">Returns `nothing`</small>
+>Returns `nothing`
 
 `$Ajax.Stop(RequestID ID)` - Stops request
-<small style="padding:0 2em;display:block;">Returns `nothing`</small>
+>Returns `nothing`
 
 `$Ajax.ResponseXML(RequestID ID)` - Fetches XML DomTree
-<small style="padding:0 2em;display:block;">Returns `DOMElementTree` or `false` on error</small>
+>Returns `DOMElementTree` or `false` on error
 
 `$Ajax.ResponseText(RequestID ID)` - Returns contents of response text
-<small style="padding:0 2em;display:block;">Returns `string` or `false` on error</small>
+>Returns `string` or `false` on error
 
 `$Ajax.Status(RequestID ID)` - Returns HTTP Response Status Code
-<small style="padding:0 2em;display:block;">Returns`integer` or `false` on error</small>
+>Returns`integer` or `false` on error
 
 `$Ajax.State(RequestID ID)` - Returns the current status of `<RequestID>`
-<small style="padding:0 2em;display:block;">Returns `integer $Ajax.States`</small>
+>Returns `integer $Ajax.States`
 
 `$Ajax.Error(RequestID ID)` - Returns the current error text for `<RequestID>`
-<small style="padding:0 2em;display:block;">Returns `string` or `false` if no error</small>
+>Returns `string` or `false` if no error
 
 `$Ajax.Headers(RequestID ID,[string Header,[string Value]])`
-<small style="padding:0 2em;display:block;">Alias of `$Ajax.Header(...)`</small>
+>Alias of `$Ajax.Header(...)`
 
 `$Ajax.SetHeader(RequestID ID,[string Header,[string Value]])`
-<small style="padding:0 2em;display:block;">Alias of `$Ajax.Header(...)`</small>
+>Alias of `$Ajax.Header(...)`
 
+Some Example Ajax Requests:
 
-	// Example Ajax Requests
 		function RunMe(){
 			$Ajax.Send($Ajax.New('test.xml'),YouFoundMe);
 			$Ajax.Send($Ajax.New('testXML.php','POST'),YouFoundMe,'test=42');
